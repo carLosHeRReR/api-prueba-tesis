@@ -2,7 +2,8 @@
 const mongoose = require('mongoose');
 
 const estudianteSchema = new mongoose.Schema({
-  codestudiante: Number,
+  _id: mongoose.Schema.Types.ObjectId,
+  codestudiante: String,
   fullname: String,
   numDocumento: String,
   fecNacimiento: [Number],

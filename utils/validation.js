@@ -3,8 +3,8 @@ const Joi = require('joi');
 
 function validarEstudiante(estudiante) {
   const schema = Joi.object({
-    fullname: Joi.string().required(),
-    codestudiante: Joi.number().required(),
+    correoInstitucional: Joi.string(),
+    codestudiante: Joi.number(),
   });
 
   return schema.validate(estudiante);

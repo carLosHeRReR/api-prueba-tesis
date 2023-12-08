@@ -7,7 +7,7 @@ async function authenticate(req, res) {
   try {
     const { error } = Joi.object({
       correoInstitucional: Joi.string(),
-      codestudiante: Joi.number(),
+      codestudiante: Joi.string(),
     }).validate(req.body);
 
     if (error) {

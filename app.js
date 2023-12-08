@@ -7,8 +7,7 @@ const cors = require('cors');
 const estudiantesRoutes = require('./routes/estudiantesRoutes');
 const authRoutes = require('./routes/authRoutes');
 const requestLogger = require('./middlewares/requestLogger');
-const authMiddleware = require('./middlewares/authMiddleware');
-
+const estudiantesFindByIdRoutes = require('./routes/estudiantesFindByIdRoutes');
 
 const app = express();
 const port = 3000;
@@ -24,13 +23,11 @@ app.use(cors());
 
 // Middleware de registro de solicitudes
 app.use(requestLogger);
-// Middleware de authenticacion por Json Web Token
-app.use(authMiddleware);
 
 // Rutas
 app.use('/estudiantes', estudiantesRoutes);
 app.use('/auth', authRoutes);
-
+app.use('/:id', estudiantesFindByIdRoutes);
 // Iniciar el servidor
 app.listen(port, () => {
   console.log(`Servidor iniciado en http://localhost:${port}`);
